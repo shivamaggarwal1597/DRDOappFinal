@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="com.github.zurche:open-weather-map-android-wrapper-v0.1">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/open-weather-map-android-wrapper-v0.1.aar/4a838d347c8a993b304287930f0edc53/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/open-weather-map-android-wrapper-v0.1.aar/4a838d347c8a993b304287930f0edc53/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

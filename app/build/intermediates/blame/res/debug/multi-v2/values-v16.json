@@ -1,0 +1,72 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/C:\\Users\\pratik\\Desktop\\DRDOMapsProject-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "map": [
+                {
+                    "source": "/home/shivam/Downloads/DRDOMapsProject-master/C:\\Users\\pratik\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\2cd78fccf43bbf93620f11de573f87fa\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "121",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "289"
+                    }
+                },
+                {
+                    "source": "/home/shivam/Downloads/DRDOMapsProject-master/C:\\Users\\pratik\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.0.1.aar\\3395df1c59a7b6af32a11c4a82441347\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "/home/shivam/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.1.aar/1a4f1c74b4de3fc4283f8461a4367087/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                },
+                {
+                    "source": "/home/shivam/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/739e0f6da0cfb154a26cfbc56a2d997d/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "121",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "289"
+                    }
+                }
+            ]
+        }
+    ]
+}

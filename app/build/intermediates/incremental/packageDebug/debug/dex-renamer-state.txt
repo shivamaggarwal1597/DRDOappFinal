@@ -1,0 +1,4 @@
+#Tue Jul 17 01:39:50 IST 2018
+base.0=/home/shivam/Downloads/DRDOMapsProject-master/app/build/intermediates/transforms/dexMerger/debug/57
+path.0=classes.dex
+renamed.0=classes.dex

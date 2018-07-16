@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/C:\\Users\\pratik\\Desktop\\DRDOMapsProject-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v25\\values-v25.xml",
+            "map": [
+                {
+                    "source": "/home/shivam/Downloads/DRDOMapsProject-master/C:\\Users\\pratik\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\2cd78fccf43bbf93620f11de573f87fa\\res\\values-v25\\values-v25.xml",
+                    "from": {
+                        "startLines": "2,3,4,6",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,126,209,308",
+                        "endLines": "2,3,5,7",
+                        "endColumns": "70,82,12,12",
+                        "endOffsets": "121,204,303,414"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v25/values-v25.xml",
+            "map": [
+                {
+                    "source": "/home/shivam/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/739e0f6da0cfb154a26cfbc56a2d997d/res/values-v25/values-v25.xml",
+                    "from": {
+                        "startLines": "2,3,4,6",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,126,209,308",
+                        "endLines": "2,3,5,7",
+                        "endColumns": "70,82,12,12",
+                        "endOffsets": "121,204,303,414"
+                    }
+                }
+            ]
+        }
+    ]
+}
