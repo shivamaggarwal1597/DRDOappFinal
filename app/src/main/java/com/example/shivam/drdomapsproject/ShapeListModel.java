@@ -1,11 +1,10 @@
 package com.example.shivam.drdomapsproject;
-
 public class ShapeListModel {
 
-public String shape_file_name;
-public String shape_file_details;
-public String show_name;
-public boolean selected_to_show;
+    public String shape_file_name;
+    public String shape_file_details;
+    public String show_name;
+    public boolean selected_to_show;
 
     public boolean isSelected_to_show() {
         return selected_to_show;

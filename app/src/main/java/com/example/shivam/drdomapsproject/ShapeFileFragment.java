@@ -25,6 +25,7 @@ public class ShapeFileFragment extends Fragment {
     private int mColumnCount = 1;
     List<ShapeListModel> shapeListModels;
     private OnListFragmentInteractionListener mListener;
+    Context context;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -42,7 +43,7 @@ public class ShapeFileFragment extends Fragment {
         shapeListModels.add(new ShapeListModel("anthro","It shows Anthrological data related to the site","Anthro Data"));
         shapeListModels.add(new ShapeListModel("aspect","It shows the Aspect Related Data to the site","Aspect"));
         shapeListModels.add(new ShapeListModel("drain","It shows the Drainage Data of the Site","Drainage Data"));
-       // shapeListModels.add(new ShapeListModel("landslide","It shows the past landslide occurences","Landslide Occurenecs"));
+        // shapeListModels.add(new ShapeListModel("landslide","It shows the past landslide occurences","Landslide Occurenecs"));
         //shapeListModels.add(new ShapeListModel("landslide","It shows the past landslide occurences","Landslide Occurenecs"));
 
     }
@@ -61,7 +62,7 @@ public class ShapeFileFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new ShapeListAdapter(shapeListModels, mListener));
+            recyclerView.setAdapter(new ShapeListAdapter(shapeListModels, mListener,context));
         }
         return view;
     }
@@ -76,6 +77,7 @@ public class ShapeFileFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnListFragmentInteractionListener");
         }
+        this.context = context;
     }
 
     @Override
@@ -84,16 +86,6 @@ public class ShapeFileFragment extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
         void onListFragmentInteraction(ShapeListModel item);

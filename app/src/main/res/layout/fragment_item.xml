@@ -26,16 +26,30 @@
         android:gravity="center"
         android:layout_weight="1"
         android:textAppearance="?attr/textAppearanceListItem" />
-    <Button
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/view_on_map_button"
-        android:layout_weight="1"
-        android:text="VIEW ON MAP"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/white"
-        android:background="#e74c3c"/>
+android:orientation="horizontal"
+        android:layout_weight="1">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/view_on_map_button"
+            android:layout_weight="1.5"
+            android:text="VIEW ON MAP"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:background="#e74c3c"/>
+        <Button
+            android:layout_width="0dp"
+            android:id="@+id/select_btn"
+            android:background="#ecf0f1"
+            android:text="TAP TO SELECT"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
 
 </LinearLayout>
 

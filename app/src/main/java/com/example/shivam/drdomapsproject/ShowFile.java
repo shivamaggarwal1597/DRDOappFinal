@@ -22,13 +22,16 @@ import java.io.IOException;
 public class ShowFile extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    String name;
+    Intent intent;
+    TinyDB tinyDB;
+    String type;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_file);
-        Intent intent = getIntent();
-        name =  intent.getStringExtra("val");
+        intent = getIntent();
+        type = intent.getStringExtra("type");
+        tinyDB = new TinyDB(ShowFile.this);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -36,23 +39,22 @@ public class ShowFile extends FragmentActivity implements OnMapReadyCallback {
     }
 
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        retrieveFileFromResource();
+        if (type.equals("single")){
+            String name =  intent.getStringExtra("val");
+            retrieveSingleFileFromResource(name);
+        }
+        else if (type.equals("multiple")){
+            retrieveMultipleFileFromResource();
+        }
+
+
 
     }
 
-    private void retrieveFileFromResource() {
+    private void retrieveSingleFileFromResource(String name) {
         try {
             switch (name){
                 case "landslide":
@@ -88,7 +90,27 @@ public class ShowFile extends FragmentActivity implements OnMapReadyCallback {
             e.printStackTrace();
         }
     }
-    private void moveCameraToKml(KmlLayer kmlLayer) {
+
+
+    public void retrieveMultipleFileFromResource(){
+        DAOmodelShapeFile daOmodelShapeFile = tinyDB.getObject("",DAOmodelShapeFile.class);
+        for (ShapeListModel shapeListModel: daOmodelShapeFile.getShapeListModels()){
+
+            retrieveSingleFileFromResource(shapeListModel.getShape_file_name());
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+   /* private void moveCameraToKml(KmlLayer kmlLayer) {
         //Retrieve the first container in the KML layer
         KmlContainer container = kmlLayer.getContainers().iterator().next();
 
@@ -97,7 +119,7 @@ public class ShowFile extends FragmentActivity implements OnMapReadyCallback {
             Toast.makeText(ShowFile.this,"Has Property",Toast.LENGTH_LONG).show();
         }
         //Retrieve a nested container within the first container
-       /*
+       *//*
         container = container.getContainers().iterator().next();
         //Retrieve the first placemark in the nested container
         KmlPlacemark placemark = container.getPlacemarks().iterator().next();
@@ -112,6 +134,6 @@ public class ShowFile extends FragmentActivity implements OnMapReadyCallback {
         int width = getResources().getDisplayMetrics().widthPixels;
         int height = getResources().getDisplayMetrics().heightPixels;
         mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(builder.build(), width, height, 1));
+    }*//*
     }*/
-    }
 }
