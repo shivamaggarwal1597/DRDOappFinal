@@ -93,7 +93,7 @@ public class ShowFile extends FragmentActivity implements OnMapReadyCallback {
 
 
     public void retrieveMultipleFileFromResource(){
-        DAOmodelShapeFile daOmodelShapeFile = tinyDB.getObject("",DAOmodelShapeFile.class);
+        DAOmodelShapeFile daOmodelShapeFile = tinyDB.getObject("dao_shape_file_selected",DAOmodelShapeFile.class);
         for (ShapeListModel shapeListModel: daOmodelShapeFile.getShapeListModels()){
 
             retrieveSingleFileFromResource(shapeListModel.getShape_file_name());
