@@ -14,21 +14,6 @@
                     }
                 }
             ]
-        },
-        {
-            "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/C:\\Users\\pratik\\Desktop\\DRDOMapsProject-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
-            "map": [
-                {
-                    "source": "/home/shivam/Downloads/DRDOMapsProject-master/C:\\Users\\pratik\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.0.1.aar\\2cd78fccf43bbf93620f11de573f87fa\\res\\values-land\\values-land.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,125,189,260",
-                        "endColumns": "69,63,70,67",
-                        "endOffsets": "120,184,255,323"
-                    }
-                }
-            ]
         }
     ]
 }

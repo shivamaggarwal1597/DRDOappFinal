@@ -1,21 +1,6 @@
 {
     "logs": [
         {
-            "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/C:\\Users\\pratik\\Desktop\\DRDOMapsProject-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw720dp-v13\\values-sw720dp-v13.xml",
-            "map": [
-                {
-                    "source": "/home/shivam/Downloads/DRDOMapsProject-master/C:\\Users\\pratik\\.gradle\\caches\\transforms-1\\files-1.1\\core-0.9.6.0.aar\\b0c40eb3c6a85e9431842d5b5f0277d4\\res\\values-sw720dp-v13\\values-sw720dp-v13.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "51",
-                        "endOffsets": "102"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw720dp-v13/values-sw720dp-v13.xml",
             "map": [
                 {

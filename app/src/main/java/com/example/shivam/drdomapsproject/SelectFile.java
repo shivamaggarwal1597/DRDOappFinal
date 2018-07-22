@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -23,6 +24,7 @@ public class SelectFile extends AppCompatActivity implements ShapeFileFragment.O
             @Override
             public void onClick(View view) {
                 daOmodelShapeFile =  tinyDB.getObject("dao_shape_file_selected",DAOmodelShapeFile.class);
+                Log.e("Testing",daOmodelShapeFile.getShapeListModels().size()+" ");
                 if (daOmodelShapeFile.getShapeListModels().size()==0){
                     new MaterialDialog.Builder(SelectFile.this)
                             .title("Important Information")

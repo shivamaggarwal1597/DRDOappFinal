@@ -43,12 +43,16 @@ public class ShowFile extends FragmentActivity implements OnMapReadyCallback {
         mMap = googleMap;
         if (type.equals("single")){
             String name =  intent.getStringExtra("val");
+            Log.e("Testing:"," in single clause ");
             retrieveSingleFileFromResource(name);
         }
         else if (type.equals("multiple")){
+            Log.e("Testing:"," in mutiple clause ");
             retrieveMultipleFileFromResource();
         }
-
+        LatLng first = new LatLng(30.0869,78.2676);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(first));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(8), 2000, null);
 
 
     }
@@ -87,9 +91,14 @@ public class ShowFile extends FragmentActivity implements OnMapReadyCallback {
 
     public void retrieveMultipleFileFromResource(){
         DAOmodelShapeFile daOmodelShapeFile = tinyDB.getObject("dao_shape_file_selected",DAOmodelShapeFile.class);
+        Log.e("Inside multiple func","true"+daOmodelShapeFile.getShapeListModels().size());
         for (ShapeListModel shapeListModel: daOmodelShapeFile.getShapeListModels()){
+            Log.e("Inside for loop","true");
+            if (shapeListModel.isSelected_to_show()){
+                Log.e("Testing Show",shapeListModel.getShow_name()+"  "+shapeListModel.isSelected_to_show());
+                retrieveSingleFileFromResource(shapeListModel.getShape_file_name());
+            }
 
-            retrieveSingleFileFromResource(shapeListModel.getShape_file_name());
         }
     }
 }
