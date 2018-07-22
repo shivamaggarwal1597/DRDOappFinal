@@ -13,12 +13,6 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A fragment representing a list of Items.
- * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
- * interface.
- */
 public class ShapeFileFragment extends Fragment {
 
     // TODO: Customize parameters
@@ -27,10 +21,6 @@ public class ShapeFileFragment extends Fragment {
     private OnListFragmentInteractionListener mListener;
     Context context;
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
     public ShapeFileFragment() {
     }
 
@@ -87,7 +77,6 @@ public class ShapeFileFragment extends Fragment {
     }
 
     public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onListFragmentInteraction(ShapeListModel item);
     }
 }
