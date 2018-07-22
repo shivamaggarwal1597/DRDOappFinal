@@ -29,8 +29,11 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.maps.android.data.kml.KmlLayer;
 
 import org.json.JSONObject;
+import org.xmlpull.v1.XmlPullParserException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -96,7 +99,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         for (int i =0; i<locationModels.size();i++){
             if (locationModels.get(i).getResult()==1){
-
+                mMap.addPolygon(new PolygonOptions()
+                        .add(new LatLng(locationModels.get(i).getLatitude(), locationModels.get(i).getLongitude()),
+                                new LatLng(locationModels.get(i).getLatitude()+0.25, locationModels.get(i).getLongitude()),
+                                new LatLng(locationModels.get(i).getLatitude()+0.25, locationModels.get(i).getLongitude()+0.25),
+                                new LatLng(locationModels.get(i).getLatitude(), locationModels.get(i).getLongitude()+0.25),
+                                new LatLng(locationModels.get(i).getLatitude(), locationModels.get(i).getLongitude()))
+                        .strokeWidth(6).strokeColor(Color.RED));
             }
             else {
                 mMap.addPolygon(new PolygonOptions()
@@ -105,19 +114,33 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 new LatLng(locationModels.get(i).getLatitude()+0.25, locationModels.get(i).getLongitude()+0.25),
                                 new LatLng(locationModels.get(i).getLatitude(), locationModels.get(i).getLongitude()+0.25),
                                 new LatLng(locationModels.get(i).getLatitude(), locationModels.get(i).getLongitude()))
-                        .strokeWidth(3).strokeColor(Color.GREEN));
+                        .strokeWidth(6).strokeColor(Color.GREEN));
 
             }
-             }
-            LatLng a = new LatLng(locationModels.get(0).getLatitude(),locationModels.get(0).getLongitude());
-            LatLng b = new LatLng(locationModels.get(1).getLatitude(),locationModels.get(1).getLongitude());
-            LatLng c = new LatLng(locationModels.get(2).getLatitude(),locationModels.get(2).getLongitude());
-            LatLng d = new LatLng(locationModels.get(3).getLatitude(),locationModels.get(3).getLongitude());
-            LatLng e = new LatLng(locationModels.get(4).getLatitude(),locationModels.get(4).getLongitude());
-            LatLng f = new LatLng(locationModels.get(5).getLatitude(),locationModels.get(5).getLongitude());
-            LatLng g = new LatLng(locationModels.get(6).getLatitude(),locationModels.get(6).getLongitude());
-
-            mMap.addMarker(new MarkerOptions()
+        }
+        LatLng a = new LatLng(locationModels.get(0).getLatitude(),locationModels.get(0).getLongitude());
+        LatLng b = new LatLng(locationModels.get(1).getLatitude(),locationModels.get(1).getLongitude());
+        LatLng c = new LatLng(locationModels.get(2).getLatitude(),locationModels.get(2).getLongitude());
+        LatLng d = new LatLng(locationModels.get(3).getLatitude(),locationModels.get(3).getLongitude());
+        LatLng e = new LatLng(locationModels.get(4).getLatitude(),locationModels.get(4).getLongitude());
+        LatLng f = new LatLng(locationModels.get(5).getLatitude(),locationModels.get(5).getLongitude());
+        LatLng g = new LatLng(locationModels.get(6).getLatitude(),locationModels.get(6).getLongitude());
+        KmlLayer kmlLayer = null;
+        try {
+            kmlLayer = new KmlLayer(mMap, R.raw.uttarakhand_district, getApplicationContext());
+        } catch (XmlPullParserException e1) {
+            e1.printStackTrace();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        try {
+            kmlLayer.addLayerToMap();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        } catch (XmlPullParserException e1) {
+            e1.printStackTrace();
+        }
+         /*   mMap.addMarker(new MarkerOptions()
                         .position(a).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
                         .title("status:  " + locationModels.get(0).getResult()));
                 Log.e("Added ", "true" + a.latitude+" "+a.longitude);
@@ -144,10 +167,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions()
                 .position(g).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
                 .title("status:  " + locationModels.get(6).getResult()));
-       // Log.e("Added ", "true" + g.latitude+" "+g.longitude);
+       // Log.e("Added ", "true" + g.latitude+" "+g.longitude);*/
         //retrieveFileFromResource();
         LatLng sydney = new LatLng(locationModels.get(3).getLatitude(),locationModels.get(3).getLongitude());
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(this,
@@ -422,8 +446,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             super.onPostExecute(result);
 
             MapsActivity.ParserTask parserTask = new ParserTask();
-
-            // Invokes the thread for parsing the JSON data
             parserTask.execute(result);
 
         }

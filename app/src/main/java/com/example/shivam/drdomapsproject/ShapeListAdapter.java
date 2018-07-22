@@ -52,17 +52,6 @@ public class ShapeListAdapter extends RecyclerView.Adapter<ShapeListAdapter.View
             holder.select_btn.setText("TAP TO SELECT");
 
         }
-
-        holder.view_on_map_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (null != mListener) {
-                    // Notify the active callbacks interface (the activity, if the
-                    // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction(holder.mItem);
-                }
-            }
-        });
         holder.select_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,6 +69,12 @@ public class ShapeListAdapter extends RecyclerView.Adapter<ShapeListAdapter.View
                 }
                 daOmodelShapeFile.setShapeListModels(mValues);
                 tinyDB.putObject("dao_shape_file_selected",daOmodelShapeFile);
+                if (null != mListener) {
+                    // Notify the active callbacks interface (the activity, if the
+                    // fragment is attached to one) that an item has been selected.
+                    mListener.onListFragmentInteraction(holder.mItem);
+                }
+
             }
         });
 

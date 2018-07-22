@@ -64,87 +64,88 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         go_to_map.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
+            @Override
+            public void onClick(View view) {
 
-        addCordinates();
+                addCordinates();
 
-        for ( LocationModel c: locationModels){
-            rain_data_list.clear();
-
-             lat_c = c.getLatitude();
-             lon_c = c.getLongitude();
-             Log.e("Check Final: ",lat_c+ " "+lon_c);
-             Coord cord  = new Coord() ;
-            cord.setLat(lat_c);
-            cord.setLon(lon_c);
-
-            mOWService.getFiveDayForecast(cord, new OWRequestListener<ExtendedWeather>() {
-                @Override
-                public void onResponse(OWResponse<ExtendedWeather> response) {
-                    ExtendedWeather extendedWeather = response.body();
-                    //Do something with the object here!
-
-                    for (WeatherForecastElement weatherForecastElement : extendedWeather.getList()){
-
-                        if (weatherForecastElement.getRain().get3h()!=null){
-                            rain_data_list.add(weatherForecastElement.getRain().get3h());
-                    //        Log.e("My Tag: ","   "+weatherForecastElement.getRain().get3h());
-                            Date date = new Date(weatherForecastElement.getDt()*1000L);
-                            SimpleDateFormat jdf = new SimpleDateFormat("yyMMddHHmmssZ");
-                            jdf.setTimeZone(TimeZone.getTimeZone("GMT-4"));
-                            String java_date = jdf.format(date).substring(0,12);
-
-
-
-                        }
-                        else {
-                            rain_data_list.add(0.00);
-                      //      Log.e("My Tag: ","   0");
-
-                        }
-
-                    }
-                    //Log.e("BeforeEquation", "size of rain lise:"+rain_data_list.size()+"lat : "+lat_c+" lon:"+lon_c);
-                    switch (dao_list.size()){
-                        case 0:
-                            applyEquations(rain_data_list,locationModels.get(0).getLatitude(),locationModels.get(0).getLongitude());
-                            break;
-                        case 1:
-                            applyEquations(rain_data_list,locationModels.get(1).getLatitude(),locationModels.get(1).getLongitude());
-                            break;
-                        case 2:
-                            applyEquations(rain_data_list,locationModels.get(2).getLatitude(),locationModels.get(2).getLongitude());
-                            break;
-                        case 3:
-                            applyEquations(rain_data_list,locationModels.get(3).getLatitude(),locationModels.get(3).getLongitude());
-                            break;
-                        case 4:
-                            applyEquations(rain_data_list,locationModels.get(4).getLatitude(),locationModels.get(4).getLongitude());
-                            break;
-                        case 5:
-                            applyEquations(rain_data_list,locationModels.get(5).getLatitude(),locationModels.get(5).getLongitude());
-                            break;
-                        case 6:
-                            applyEquations(rain_data_list,locationModels.get(6).getLatitude(),locationModels.get(6).getLongitude());
-                            break;
-
-                    }
+                for ( LocationModel c: locationModels){
                     rain_data_list.clear();
 
+                    lat_c = c.getLatitude();
+                    lon_c = c.getLongitude();
+                    Log.e("Check Final: ",lat_c+ " "+lon_c);
+                    Coord cord  = new Coord() ;
+                    cord.setLat(lat_c);
+                    cord.setLon(lon_c);
 
+                    mOWService.getFiveDayForecast(cord, new OWRequestListener<ExtendedWeather>() {
+                        @Override
+                        public void onResponse(OWResponse<ExtendedWeather> response) {
+                            ExtendedWeather extendedWeather = response.body();
+                            //Do something with the object here!
+
+                            for (WeatherForecastElement weatherForecastElement : extendedWeather.getList()){
+
+                                if (weatherForecastElement.getRain().get3h()!=null){
+                                    rain_data_list.add(weatherForecastElement.getRain().get3h());
+                                    Log.e("My Tag: ","   "+weatherForecastElement.getRain().get3h());
+                                    Date date = new Date(weatherForecastElement.getDt()*1000L);
+                                    SimpleDateFormat jdf = new SimpleDateFormat("yyMMddHHmmssZ");
+                                    jdf.setTimeZone(TimeZone.getTimeZone("GMT-4"));
+                                    String java_date = jdf.format(date).substring(0,12);
+                                    Log.e("My Tag: ","   "+weatherForecastElement.getRain().get3h() + java_date);
+
+
+
+                                }
+                                else {
+                                    rain_data_list.add(0.00);
+                                    //      Log.e("My Tag: ","   0");
+
+                                }
+
+                            }
+                            //Log.e("BeforeEquation", "size of rain lise:"+rain_data_list.size()+"lat : "+lat_c+" lon:"+lon_c);
+                            switch (dao_list.size()){
+                                case 0:
+                                    applyEquations(rain_data_list,locationModels.get(0).getLatitude(),locationModels.get(0).getLongitude());
+                                    break;
+                                case 1:
+                                    applyEquations(rain_data_list,locationModels.get(1).getLatitude(),locationModels.get(1).getLongitude());
+                                    break;
+                                case 2:
+                                    applyEquations(rain_data_list,locationModels.get(2).getLatitude(),locationModels.get(2).getLongitude());
+                                    break;
+                                case 3:
+                                    applyEquations(rain_data_list,locationModels.get(3).getLatitude(),locationModels.get(3).getLongitude());
+                                    break;
+                                case 4:
+                                    applyEquations(rain_data_list,locationModels.get(4).getLatitude(),locationModels.get(4).getLongitude());
+                                    break;
+                                case 5:
+                                    applyEquations(rain_data_list,locationModels.get(5).getLatitude(),locationModels.get(5).getLongitude());
+                                    break;
+                                case 6:
+                                    applyEquations(rain_data_list,locationModels.get(6).getLatitude(),locationModels.get(6).getLongitude());
+                                    break;
+
+                            }
+                            rain_data_list.clear();
+
+
+                        }
+
+                        @Override
+                        public void onFailure(Throwable t) {
+                            Log.e("5", "Five Day Forecast request failed: " + t.getMessage());
+                        }
+                    });
                 }
 
-                @Override
-                public void onFailure(Throwable t) {
-                    Log.e("5", "Five Day Forecast request failed: " + t.getMessage());
-                }
-            });
-        }
 
-
-    }
-});
+            }
+        });
     }
 
 
@@ -167,9 +168,9 @@ public class MainActivity extends AppCompatActivity {
         locationModel.setLongitude(lon);
         dao_list.add(locationModel);
         if(dao_list.size()==7){
-           for(LocationModel lm: dao_list){
-               Log.e("Checking at Main: ", lm.getLatitude()+" "+lm.getLongitude()+" "+lm.getResult());
-           }
+            for(LocationModel lm: dao_list){
+                Log.e("Checking at Main: ", lm.getLatitude()+" "+lm.getLongitude()+" "+lm.getResult());
+            }
 
             daoModel.setLocation_models(dao_list);
             tinyDB.putObject("dao",daoModel);
@@ -184,57 +185,60 @@ public class MainActivity extends AppCompatActivity {
 
     public RainModel quantify_rainfall(double sum1, double sum2, double sum3, double sum4){
         RainModel rainModel =  new RainModel() ;
-        if (sum1 > 0.5){
-                //Applied Lower Limit
-                rainModel.setRain_fall(sum1);
-                rainModel.setHours(24);
+        if (sum1 > 5.44) {
+            //Applied Lower Limit
+
+            rainModel.setRain_fall(sum1);
+            rainModel.setHours(24);
             //Added the event of the first day, now considering the event of previous day
-            if (sum2>0.5){
+            if (sum2 > 5.44) {
                 //Inside Valid Zone for Day 2
-                rainModel.setRain_fall(sum1+sum2);
+                rainModel.setRain_fall(sum1 + sum2);
                 rainModel.setHours(48);
-                if (sum3>0.5){
-                    rainModel.setRain_fall(sum1+sum2+sum3);
+                if (sum3 > 5.44) {
+                    rainModel.setRain_fall(sum1 + sum2 + sum3);
                     rainModel.setHours(72);
-                    if (sum4>0.5){
-                        rainModel.setRain_fall(sum1+sum2+sum3+sum4);
+                    if (sum4 > 5.44) {
+                        rainModel.setRain_fall(sum1 + sum2 + sum3 + sum4);
                         rainModel.setHours(96);
                     }
                 }
 
             }
 
+        }
 
 
-            }
-else {
+        else {
             rainModel.setHours(0);
             rainModel.setRain_fall(0.00);
         }
 
-    return rainModel;
+        return rainModel;
     }
 
 
     public double list_sum(List<Double> list, int start_index,int end_index){
-       double sum = 0.00;
+        double sum = 0.00;
         for (int i=start_index;i<=end_index;i++){
-           sum+=list.get(i);
+            sum+=list.get(i);
         }
         return sum;
     }
     public int classify_rainfall(RainModel rainModel){
 
         //Calculate the Intensity Here By Using the Object here
-        double intensity = rainModel.getRain_fall()/rainModel.getHours();
+        double intensity = (rainModel.getRain_fall()/rainModel.getHours());
 
         //Apply The Equation On Intensity Here and return status String according the result
 
         double val = 12.12354*Math.pow(rainModel.getHours(),-0.73361977);
         if (intensity<val){
+            Log.e("ChecK Equations:","intensity:"+intensity+"value"+val+"   ");
             return 0;
         }
         else {
+            Log.e("ChecK Equations:","intensity:"+intensity+"value"+val+"   ");
             return 1;
         }
 
@@ -270,8 +274,8 @@ else {
         coordinate5.setLongitude(78.50);
         locationModels.add(coordinate5);
         LocationModel coordinate6 = new LocationModel();
-       // Coord coordinate6 = new Coord();
-       coordinate6.setLatitude(31.00);
+        // Coord coordinate6 = new Coord();
+        coordinate6.setLatitude(31.00);
         coordinate6.setLongitude(78.75);
         locationModels.add(coordinate6);
         Log.e("My List Size : ", locationModels.size()+"");

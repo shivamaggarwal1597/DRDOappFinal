@@ -32,7 +32,6 @@ public class ShowFile extends FragmentActivity implements OnMapReadyCallback {
         intent = getIntent();
         type = intent.getStringExtra("type");
         tinyDB = new TinyDB(ShowFile.this);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -78,12 +77,6 @@ public class ShowFile extends FragmentActivity implements OnMapReadyCallback {
                     kmlLayer4.addLayerToMap();
                     break;
             }
-
-
-
-
-
-            // moveCameraToKml(kmlLayer);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (XmlPullParserException e) {
@@ -99,41 +92,4 @@ public class ShowFile extends FragmentActivity implements OnMapReadyCallback {
             retrieveSingleFileFromResource(shapeListModel.getShape_file_name());
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-   /* private void moveCameraToKml(KmlLayer kmlLayer) {
-        //Retrieve the first container in the KML layer
-        KmlContainer container = kmlLayer.getContainers().iterator().next();
-
-        if (container.hasProperties()) {
-            Log.e("tag","true");
-            Toast.makeText(ShowFile.this,"Has Property",Toast.LENGTH_LONG).show();
-        }
-        //Retrieve a nested container within the first container
-       *//*
-        container = container.getContainers().iterator().next();
-        //Retrieve the first placemark in the nested container
-        KmlPlacemark placemark = container.getPlacemarks().iterator().next();
-        //Retrieve a polygon object in a placemark
-        KmlPolygon polygon = (KmlPolygon) placemark.getGeometry();
-        //Create LatLngBounds of the outer coordinates of the polygon
-        LatLngBounds.Builder builder = new LatLngBounds.Builder();
-        for (LatLng latLng : polygon.getOuterBoundaryCoordinates()) {
-            builder.include(latLng);
-        }
-
-        int width = getResources().getDisplayMetrics().widthPixels;
-        int height = getResources().getDisplayMetrics().heightPixels;
-        mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(builder.build(), width, height, 1));
-    }*//*
-    }*/
 }
