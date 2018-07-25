@@ -267,22 +267,6 @@
             ]
         },
         {
-            "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/app/build/intermediates/res/merged/debug/values-v22_values-v22.arsc.flat",
-            "map": [
-                {
-                    "source": "/home/shivam/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/739e0f6da0cfb154a26cfbc56a2d997d/res/values-v22/values-v22.xml",
-                    "from": {
-                        "startLines": "2,3,4,9",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,130,217,553",
-                        "endLines": "2,3,8,13",
-                        "endColumns": "74,86,12,12",
-                        "endOffsets": "125,212,548,896"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/app/build/intermediates/res/merged/debug/values-ca_values-ca.arsc.flat",
             "map": [
                 {
@@ -351,6 +335,22 @@
                         "startOffsets": "105,223,329,436,519,627,753,837,918,1001,1112,1221,1319,1429,1533,1641,1801,4637",
                         "endColumns": "117,105,106,82,107,125,83,80,82,110,108,97,109,103,107,159,98,80",
                         "endOffsets": "218,324,431,514,622,748,832,913,996,1107,1216,1314,1424,1528,1636,1796,1895,4713"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/app/build/intermediates/res/merged/debug/values-v22_values-v22.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/shivam/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/739e0f6da0cfb154a26cfbc56a2d997d/res/values-v22/values-v22.xml",
+                    "from": {
+                        "startLines": "2,3,4,9",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,130,217,553",
+                        "endLines": "2,3,8,13",
+                        "endColumns": "74,86,12,12",
+                        "endOffsets": "125,212,548,896"
                     }
                 }
             ]
@@ -721,17 +721,31 @@
             ]
         },
         {
-            "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/app/build/intermediates/res/merged/debug/values-v26_values-v26.arsc.flat",
+            "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/app/build/intermediates/res/merged/debug/values-large-v4_values-large-v4.arsc.flat",
             "map": [
                 {
-                    "source": "/home/shivam/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/739e0f6da0cfb154a26cfbc56a2d997d/res/values-v26/values-v26.xml",
+                    "source": "/home/shivam/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/739e0f6da0cfb154a26cfbc56a2d997d/res/values-large-v4/values-large-v4.xml",
                     "from": {
-                        "startLines": "2,3,4,8,12,16",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,130,217,431,657,896",
-                        "endLines": "2,3,7,11,15,16",
-                        "endColumns": "74,86,12,12,12,92",
-                        "endOffsets": "125,212,426,652,891,984"
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,185,256,326,396,464,532,636",
+                        "endColumns": "58,70,70,69,69,67,67,103,115",
+                        "endOffsets": "109,180,251,321,391,459,527,631,747"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/app/build/intermediates/res/merged/debug/values-night-v8_values-night-v8.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/shivam/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/739e0f6da0cfb154a26cfbc56a2d997d/res/values-night-v8/values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593",
+                        "endColumns": "69,83,83,95,101,101,93",
+                        "endOffsets": "120,204,288,384,486,588,682"
                     }
                 }
             ]
@@ -810,31 +824,17 @@
             ]
         },
         {
-            "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/app/build/intermediates/res/merged/debug/values-night-v8_values-night-v8.arsc.flat",
+            "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/app/build/intermediates/res/merged/debug/values-v26_values-v26.arsc.flat",
             "map": [
                 {
-                    "source": "/home/shivam/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/739e0f6da0cfb154a26cfbc56a2d997d/res/values-night-v8/values-night-v8.xml",
+                    "source": "/home/shivam/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/739e0f6da0cfb154a26cfbc56a2d997d/res/values-v26/values-v26.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "55,125,209,293,389,491,593",
-                        "endColumns": "69,83,83,95,101,101,93",
-                        "endOffsets": "120,204,288,384,486,588,682"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/app/build/intermediates/res/merged/debug/values-large-v4_values-large-v4.arsc.flat",
-            "map": [
-                {
-                    "source": "/home/shivam/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/739e0f6da0cfb154a26cfbc56a2d997d/res/values-large-v4/values-large-v4.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,114,185,256,326,396,464,532,636",
-                        "endColumns": "58,70,70,69,69,67,67,103,115",
-                        "endOffsets": "109,180,251,321,391,459,527,631,747"
+                        "startLines": "2,3,4,8,12,16",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,130,217,431,657,896",
+                        "endLines": "2,3,7,11,15,16",
+                        "endColumns": "74,86,12,12,12,92",
+                        "endOffsets": "125,212,426,652,891,984"
                     }
                 }
             ]
@@ -1936,40 +1936,6 @@
             ]
         },
         {
-            "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/app/build/intermediates/res/merged/debug/values-v16_values-v16.arsc.flat",
-            "map": [
-                {
-                    "source": "/home/shivam/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.1.aar/1a4f1c74b4de3fc4283f8461a4367087/res/values-v16/values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
-                    }
-                },
-                {
-                    "source": "/home/shivam/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/739e0f6da0cfb154a26cfbc56a2d997d/res/values-v16/values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "223"
-                    },
-                    "to": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "121",
-                        "endLines": "6",
-                        "endColumns": "12",
-                        "endOffsets": "289"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/app/build/intermediates/res/merged/debug/values-zu_values-zu.arsc.flat",
             "map": [
                 {
@@ -2038,6 +2004,40 @@
                         "startOffsets": "4733",
                         "endColumns": "100",
                         "endOffsets": "4829"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/app/build/intermediates/res/merged/debug/values-v16_values-v16.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/shivam/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.1.aar/1a4f1c74b4de3fc4283f8461a4367087/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                },
+                {
+                    "source": "/home/shivam/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/739e0f6da0cfb154a26cfbc56a2d997d/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "121",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "289"
                     }
                 }
             ]
@@ -2740,6 +2740,21 @@
             ]
         },
         {
+            "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/app/build/intermediates/res/merged/debug/values-port_values-port.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/shivam/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/739e0f6da0cfb154a26cfbc56a2d997d/res/values-port/values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/app/build/intermediates/res/merged/debug/values-mk_values-mk.arsc.flat",
             "map": [
                 {
@@ -2808,21 +2823,6 @@
                         "startOffsets": "1877,1986,2179,2314,2426,2630,2765,2915,3250,3466,3575,3772,3907,4119,4308,4407,4501",
                         "endColumns": "108,192,134,111,203,134,149,138,215,108,196,134,211,188,98,93,107",
                         "endOffsets": "1981,2174,2309,2421,2625,2760,2910,3049,3461,3570,3767,3902,4114,4303,4402,4496,4604"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/home/shivam/Downloads/DRDOMapsProject-master/app/build/intermediates/res/merged/debug/values-port_values-port.arsc.flat",
-            "map": [
-                {
-                    "source": "/home/shivam/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/739e0f6da0cfb154a26cfbc56a2d997d/res/values-port/values-port.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "55",
-                        "endOffsets": "106"
                     }
                 }
             ]
