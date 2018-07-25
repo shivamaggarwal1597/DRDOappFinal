@@ -25,7 +25,6 @@ import az.openweatherapi.utils.OWSupportedUnits;
 
 public class MainActivity extends AppCompatActivity {
     OWService mOWService;
-    TextView textView;
     Button view_files,go_to_map,show_route;
     List<LocationModel> locationModels ;
     TinyDB tinyDB;
@@ -51,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
         });
         go_to_map = (Button)findViewById(R.id.go_to_map);
         view_files = (Button)findViewById(R.id.view_files_button);
-        textView = (TextView)findViewById(R.id.my_text);
         mOWService = new OWService("f512468636ab7a42a5354384b04d1b6e");
         mOWService.setLanguage(Locale.ENGLISH);
         tinyDB = new TinyDB(MainActivity.this);
@@ -74,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
                     lat_c = c.getLatitude();
                     lon_c = c.getLongitude();
-                    Log.e("Check Final: ",lat_c+ " "+lon_c);
+                   // Log.e("Check Final: ",lat_c+ " "+lon_c);
                     Coord cord  = new Coord() ;
                     cord.setLat(lat_c);
                     cord.setLon(lon_c);
@@ -89,12 +87,12 @@ public class MainActivity extends AppCompatActivity {
 
                                 if (weatherForecastElement.getRain().get3h()!=null){
                                     rain_data_list.add(weatherForecastElement.getRain().get3h());
-                                    Log.e("My Tag: ","   "+weatherForecastElement.getRain().get3h());
+                                    //Log.e("My Tag: ","   "+weatherForecastElement.getRain().get3h());
                                     Date date = new Date(weatherForecastElement.getDt()*1000L);
                                     SimpleDateFormat jdf = new SimpleDateFormat("yyMMddHHmmssZ");
                                     jdf.setTimeZone(TimeZone.getTimeZone("GMT-4"));
                                     String java_date = jdf.format(date).substring(0,12);
-                                    Log.e("My Tag: ","   "+weatherForecastElement.getRain().get3h() + java_date);
+                                    //Log.e("My Tag: ","   "+weatherForecastElement.getRain().get3h() + java_date);
 
 
 
@@ -154,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
         List<Double> my_list = rain_list;
         Collections.reverse(my_list);
         List<Double> sub_list = my_list.subList(0,32);
-        Log.e("Size of List:",sub_list.size()+" ");
+        //Log.e("Size of List:",sub_list.size()+" ");
         double rain_fall_sum_day_1  =  list_sum(sub_list,0,7);
         double rain_fall_sum_day_2  =  list_sum(sub_list,8,15);
         double rain_fall_sum_day_3  =  list_sum(sub_list,16,23);
@@ -168,10 +166,6 @@ public class MainActivity extends AppCompatActivity {
         locationModel.setLongitude(lon);
         dao_list.add(locationModel);
         if(dao_list.size()==7){
-            for(LocationModel lm: dao_list){
-                Log.e("Checking at Main: ", lm.getLatitude()+" "+lm.getLongitude()+" "+lm.getResult());
-            }
-
             daoModel.setLocation_models(dao_list);
             tinyDB.putObject("dao",daoModel);
             Intent intent = new Intent(MainActivity.this,MapsActivity.class);
@@ -226,20 +220,54 @@ public class MainActivity extends AppCompatActivity {
         return sum;
     }
     public int classify_rainfall(RainModel rainModel){
-
+        double intensity= 0;
+        double val = 0;
         //Calculate the Intensity Here By Using the Object here
-        double intensity = (rainModel.getRain_fall()/rainModel.getHours());
+        if(rainModel.getHours()!=0){
+            intensity = (rainModel.getRain_fall()/rainModel.getHours());
+        }
+        else{
+            intensity = 0 ;
+        }
 
-        //Apply The Equation On Intensity Here and return status String according the result
 
-        double val = 12.12354*Math.pow(rainModel.getHours(),-0.73361977);
-        if (intensity<val){
-            Log.e("ChecK Equations:","intensity:"+intensity+"value"+val+"   ");
-            return 0;
+        if (rainModel.getHours()!=0){
+            val = 12.12354*Math.pow(rainModel.getHours(),-0.73361977);
         }
         else {
-            Log.e("ChecK Equations:","intensity:"+intensity+"value"+val+"   ");
+            val = 0;
+        }
+
+
+
+        double ratio = 0;
+
+
+
+        if (intensity!=0 && val!=0){
+            ratio = intensity/val;
+        }else {
+            ratio =0;
+        }
+
+
+        if (0.75<ratio && ratio<1.00){
+            Log.e("ChecK Equations:","intensity:"+intensity+"value"+val+"  ratio: "+ ratio);
             return 1;
+        }
+        else if (ratio>=1 && ratio<1.25){
+            Log.e("ChecK Equations:","intensity:"+intensity+"value"+val+"  ratio: "+ ratio);
+
+            return 2;
+        }
+        else if (ratio>=1.25){
+            Log.e("ChecK Equations:","intensity:"+intensity+"value"+val+"  ratio: "+ ratio);
+
+            return 3;
+        }
+        else {
+            Log.e("ChecK Equations:","intensity:"+intensity+"value"+val+"  ratio: "+ ratio);
+            return 0;
         }
 
     }
